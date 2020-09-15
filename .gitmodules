@@ -1,3 +1,0 @@
-[submodule "wiegand"]
-    path = lib/wiegand.py
-    url = https://github.com/vrelk/micropython-wiegand/wiegand.py
