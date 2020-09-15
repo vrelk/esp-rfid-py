@@ -19,11 +19,6 @@ modules['relay'] = {
 		{
 			'pin': 13, # ESP-RFID Relay Board
 			'close_after': 1 # How long relay should be opened in seconds.
-		},
-		{
-			'pin': 12,
-			'open_after': 2, # Delay after second doors will be opened.
-			'close_after': 0.5
 		}
 	]
 }
@@ -54,13 +49,13 @@ modules['master_card'] = {
 # Airtable API is vulnerable to MITM attack which can lead to API keys disclosure.
 # If you use Airtable module you have to use private WiFi and trust your ISP!
 
-#modules['airtable'] = {
-#	'base': 'https://api.airtable.com/v0/app123456789', # You can find it there: https://airtable.com/api
-#	'key': 'key123456789', # API key, you can find there: https://airtable.com/account
-#	'device_name': 'Klubovna', # After start will be added to Devices table.
-#	'fields_sync': [ # What fields will be synchronized and how mapped to local database. UID will be always synced.
-#		('Label': 'name'),
+modules['airtable'] = {
+	'base': 'http://airtable.example.com/v0/app1234abcd', # You can find it there: https://airtable.com/api
+	'key': 'key12346abcd', # API key, you can find there: https://airtable.com/account
+	'device_name': 'Klubovna', # After start will be added to Devices table.
+	'fields_sync': [ # What fields will be synchronized and how mapped to local database. UID will be always synced.
+#		('Label': 'name')
 #		('Permanent open-close': 'permanent')
-#	],
-#	'empty_means_everywhere': true # Will sync tag even if Devices column is empty - user can go everywhere.
-#}
+	],
+	'empty_means_everywhere': False # Will sync tag even if Devices column is empty - user can go everywhere.
+}

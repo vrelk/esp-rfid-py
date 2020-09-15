@@ -17,10 +17,11 @@ if len(readers) > 1:
 if readers[0]['type'] != 'wiegand.py':
 	raise NotImplementedError
 
-def on_card(card_number, facility_code, cards_read):
+def on_card(card_number, facility_code, cards_read, bit_length):
 	log.info("Card UID: %s", reader.last_card)
 	log.debug("Card UID/card_number: %s", card_number)
 	log.debug("Card UID/facility_code: %s", facility_code)
+	log.debug("Card Bit Length: %s", bit_length)
 
 	card = storage.get(reader.last_card)
 	if not card:

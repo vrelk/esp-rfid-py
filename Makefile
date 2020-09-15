@@ -6,6 +6,7 @@ run-docker-build:
 
 build-firmware:
 	cp -R lib/* src/modules/* /micropython/ports/esp8266/modules
+    cp /micropython/extmod/webrepl/webrepl.py /micropython/extmod/webrepl/webrepl_setup.py /micropython/extmod/webrepl/websocket_helper.py /micropython/ports/esp8266/modules/
 	cd /micropython/ports/esp8266 && make
 	mv /micropython/ports/esp8266/build-GENERIC/firmware-combined.bin /app
 
