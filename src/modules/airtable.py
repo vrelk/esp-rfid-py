@@ -10,6 +10,18 @@ import logging
 log = logging.getLogger("airtable")
 import uasyncio as asyncio
 
+import config
+
+if len(config.modules['airtable']['base']) > 0:
+    AIRTABLE_BASE = config.modules['airtable']['base']
+
+if len(config.modules['airtable']['key']) > 0:
+    AIRTABLE_KEY = config.modules['airtable']['key']
+
+if len(config.modules['airtable']['device_name']) > 0:
+    AIRTABLE_DEVICE_NAME = config.modules['airtable']['device_name']
+
+
 def login():
 	global AIRTABLE_DEVICE_ID
 	r = request('GET', '/Devices?filterByFormula=Name%3D%27{}%27&fields[]=Name'.format(AIRTABLE_DEVICE_NAME))
